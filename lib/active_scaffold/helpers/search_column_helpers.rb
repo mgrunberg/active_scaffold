@@ -221,7 +221,7 @@ module ActiveScaffold
         from_options = active_scaffold_input_text_options(input_options.merge(:id => options[:id], :size => text_field_size))
         to_options = from_options.merge(:id => "#{options[:id]}_to")
         html << content_tag('span', :id => "#{options[:id]}_numeric", :style => ActiveScaffold::Finder::NULL_COMPARATORS.include?(opt_value) ? 'display: none' : nil) do
-          send(input_method, "#{options[:name]}[from]", from_value, input_options) <<
+          send(input_method, "#{options[:name]}[from]", from_value, from_options) <<
             content_tag(
               :span,
               safe_join([' - ', send(input_method, "#{options[:name]}[to]", to_value, to_options)]),
